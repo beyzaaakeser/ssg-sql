@@ -81,4 +81,19 @@ select mensei, fiyat from araba where mensei='Japon'
 order by fiyat desc;
 
 
+/* -----------------------------------------------------------------------------
+  SORU3: 500000’den az fiyat'ı olan arabanın marka, fiyat ve model bilgileri ile,
+ 
+-- 'Golf' model olmayan arabanın marka, fiyat, model bilgilerini
 
+-- tekrarsız gosteren bir sorgu listeleyiniz. 
+------------------------------------------------------------------------------*/ 
+
+select fiyat, marka, model from araba where fiyat<500000
+union 
+select fiyat,marka, model from araba where model !='Golf';
+
+-- 2. YOL 
+select fiyat, marka, model from araba where fiyat<500000
+union 
+select fiyat,marka, model from araba where not model ='Golf';
